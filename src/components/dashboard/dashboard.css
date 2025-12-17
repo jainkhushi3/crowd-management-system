@@ -192,3 +192,17 @@
   font-size: 13px;
   font-weight: 500;
 }
+
+@media (max-width: 768px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demographics-section {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card {
+    padding: 16px;
+  }
+}

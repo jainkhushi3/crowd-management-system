@@ -1,27 +1,24 @@
-import { NavLink , useNavigate} from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiMenu, FiLogOut } from "react-icons/fi";
 import "./layout.css";
 import socketService from "../../services/socket.service";
 
-
-const Sidebar = () => {
+const Sidebar = ({ sidebarOpen }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-
     socketService.disconnect();
-
     navigate("/", { replace: true });
   };
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
       <div className="sidebar-top">
         <div className="logo">
           <span className="logo-icon">◎</span>
           <span className="logo-text">kloudspot</span>
         </div>
-        <FiMenu className="menu-icon" />
       </div>
 
       <nav className="sidebar-menu">
