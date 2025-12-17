@@ -1,0 +1,30 @@
+.alert-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.alert-card {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  width: 240px;
+}
+
+.alert-card.high {
+  border-left: 6px solid #dc2626;
+}
+
+.alert-card.medium {
+  border-left: 6px solid #f59e0b;
+}
+
+.alert-card.low {
+  border-left: 6px solid #16a34a;
+}

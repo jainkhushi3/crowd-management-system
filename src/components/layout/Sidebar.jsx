@@ -1,0 +1,46 @@
+import { NavLink , useNavigate} from "react-router-dom";
+import { FiMenu, FiLogOut } from "react-icons/fi";
+import "./layout.css";
+import socketService from "../../services/socket.service";
+
+
+const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+
+    socketService.disconnect();
+
+    navigate("/", { replace: true });
+  };
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-top">
+        <div className="logo">
+          <span className="logo-icon">◎</span>
+          <span className="logo-text">kloudspot</span>
+        </div>
+        <FiMenu className="menu-icon" />
+      </div>
+
+      <nav className="sidebar-menu">
+        <NavLink to="/dashboard" className="menu-item">
+          Overview
+        </NavLink>
+
+        <NavLink to="/entries" className="menu-item">
+          Crowd Entries
+        </NavLink>
+      </nav>
+
+      <div className="sidebar-bottom">
+        <button className="logout-btn" onClick={handleLogout}>
+          <FiLogOut /> Logout
+        </button>
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;

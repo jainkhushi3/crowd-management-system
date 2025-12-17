@@ -1,0 +1,73 @@
+.entries-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.entries-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.entries-table th {
+  text-align: left;
+  font-size: 13px;
+  color: #6b7280;
+  padding-bottom: 12px;
+}
+
+.entries-table td {
+  padding: 14px 0;
+  border-top: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.gender {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.gender.male {
+  background: #e0f2f1;
+  color: #0f766e;
+}
+
+.gender.female {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #dc2626;
+  margin-bottom: 12px;
+}
+
+.pagination button {
+  width: auto !important;  
+  min-width: 60px;
+  padding: 6px 12px;
+  background: white;
+  color: #374151;
+  font-size: 13px;
+  border: 1px solid #d1d5db;
+}
+
+.pagination button:hover {
+  background: #f3f4f6;
+}
+
