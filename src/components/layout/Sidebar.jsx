@@ -3,7 +3,7 @@ import { FiMenu, FiLogOut } from "react-icons/fi";
 import "./layout.css";
 import socketService from "../../services/socket.service";
 
-const Sidebar = ({ sidebarOpen }) => {
+const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -22,11 +22,19 @@ const Sidebar = ({ sidebarOpen }) => {
       </div>
 
       <nav className="sidebar-menu">
-        <NavLink to="/dashboard" className="menu-item">
+        <NavLink
+          to="/dashboard"
+          className="menu-item"
+          onClick={() => setSidebarOpen(false)}
+        >
           Overview
         </NavLink>
 
-        <NavLink to="/entries" className="menu-item">
+        <NavLink
+          to="/entries"
+          className="menu-item"
+          onClick={() => setSidebarOpen(false)}
+        >
           Crowd Entries
         </NavLink>
       </nav>

@@ -9,7 +9,18 @@ const MainLayout = () => {
 
   return (
     <div className="app-layout">
-      <Sidebar sidebarOpen={sidebarOpen} />
+      {/* Overlay (mobile only) */}
+      {sidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
 
       <div className="main-section">
         <TopNavbar
