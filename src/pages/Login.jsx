@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import "./login.css";
+import axios from "../api/axios.js"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,17 +19,37 @@ const Login = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
-    if (
-      form.loginId === "parking_solutions" &&
-      form.password === "123456"
-    ) {
-      localStorage.setItem("token", "dummy-token");
+    // if (
+    //   form.loginId === "parking_solutions" &&
+    //   form.password === "123456"
+    // ) {
+    //   localStorage.setItem("token", "dummy-token");
+    //   navigate("/dashboard");
+    // } else {
+    //   setError("Invalid login ID or password");
+    // }
+
+
+    try {
+       const res = await axios.post(
+    "/auth/login",
+    {
+      email: form.loginId,
+      password: form.password,
+    
+    },
+  );
+  console.log(res);
+  if(res.data.token){
+       localStorage.setItem("token", res.data.token);
       navigate("/dashboard");
-    } else {
+  }
+    } catch {
       setError("Invalid login ID or password");
+
     }
   };
 
