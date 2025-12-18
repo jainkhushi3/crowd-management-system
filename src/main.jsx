@@ -7,7 +7,7 @@ import AlertProvider from "./context/AlertProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <AlertProvider>
         <App />
       </AlertProvider>
