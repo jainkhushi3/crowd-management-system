@@ -6,7 +6,16 @@ export const fetchDwellTime = async () => {
 };
 
 export const fetchFootfall = async () => {
-  const res = await api.post("/analytics/footfall");
+   const fromUtc = Date.UTC(2025, 11, 18, 0, 0, 0);
+  const toUtc = Date.UTC(2025, 11, 18, 23, 59, 59);
+
+  const res = await api.post("/analytics/footfall", {
+    siteId: "mall_1",
+    fromUtc,
+    toUtc
+  });
+
+  console.log("footfall", res.data);
   return res.data;
 };
 
